@@ -299,6 +299,10 @@ module.exports = class S3Plugin {
       s3Params.ContentType = mime.getType(fileName)
 
     const Body = fs.createReadStream(file)
+    console.log(Key);
+    console.log(Body);
+    console.log(s3Params);
+    console.log(DEFAULT_UPLOAD_OPTIONS);
     const upload = this.client.upload(
       _.merge({Key, Body}, DEFAULT_UPLOAD_OPTIONS, s3Params)
     )
